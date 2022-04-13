@@ -1,0 +1,355 @@
+body {
+  box-sizing: border-box;
+  background-color: #393939;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+nav {
+  width: 100%;
+  top: 0;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.categorias {
+  text-decoration: none;
+  color: rgb(231, 231, 231);
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.categorias:hover {
+  color: #13ffd5;
+}
+
+.navbarContainer {
+  color: rgb(231, 231, 231);
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbarCategorias {
+  display: flex;
+  margin-left: 60px;
+}
+.cartNavContainer h4 {
+  margin-left: 20px;
+}
+
+.cartNavContainer form {
+  margin-right: 15px;
+}
+
+.cartIcon {
+  color: rgb(231, 231, 231);
+  font-size: 40px;
+  margin-left: 15px;
+}
+.searchIcon {
+  margin-right: 5px;
+  font-size: 25px;
+  color: #13ffd5;
+}
+
+.cartNavContainer {
+  display: flex;
+  align-items: center;
+}
+
+.letrasBlancas {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: white;
+}
+
+.letrasVerdes {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  color: rgb(19, 255, 213);
+}
+
+.categoriaBreadcrums:hover {
+  color: #13ffd5;
+}
+
+.button-addCarrito {
+  background-color: #13ffd5;
+  color: #393939;
+  font-size: large;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.marginContainer {
+  margin-top: 70px;
+}
+.textoDerecha {
+  text-align: right;
+}
+
+.log_reg {
+  text-decoration: none;
+  color: rgb(231, 231, 231);
+  background: none;
+  border: none;
+  margin: 0 10px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.log_reg:hover {
+  cursor: pointer;
+  color: #13ffd5;
+}
+
+.hero {
+  width: 100%;
+  height: 500px;
+  background-color: rgb(231, 231, 231);
+}
+.heroContainer {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.heroInfo {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroInfo h6,
+h2,
+p {
+  margin: 5px;
+}
+
+.heroInfo h2 {
+  font-size: 40px;
+}
+
+.heroBtn {
+  width: 110px;
+  height: 30px;
+  margin-top: 20px;
+  background-color: #13ffd5;
+  color: #393939;
+  font-weight: 600;
+  border: none;
+}
+
+.heroBtn:hover {
+  cursor: pointer;
+  background-color: #66ffe3;
+}
+
+.heroImage {
+  width: 50%;
+}
+
+.heroImage img {
+  margin-top: -20px;
+  margin-left: -40px;
+  width: 130%;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.loginContainer {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 500px;
+  background-color: rgb(231, 231, 231);
+  border: 1px solid rgb(216, 216, 216);
+
+  border-radius: 5px;
+}
+
+.loginContainer > h2 {
+  font-size: 20px;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.loginContainer div {
+  margin: 30px auto;
+  width: 80%;
+  border-top: #393939 solid 2px;
+}
+
+.logForm {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logInputs {
+  display: inline-block;
+  margin: 5px;
+
+  border: 1px solid rgb(216, 216, 216);
+
+  font-size: 18px;
+
+  height: 30px;
+  padding: 5px 15px;
+}
+
+.logBtn {
+  color: #393939;
+  height: 45px;
+  border: none;
+
+  background-color: #13ffd5;
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logBtn:hover {
+  cursor: pointer;
+  background-color: #66ffe3;
+}
+
+.logBtnGoogle {
+  color: #ffffff;
+  height: 45px;
+  border: none;
+
+  background-color: #0167ff;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+}
+.logBtnGoogle:hover {
+  cursor: pointer;
+  background-color: #2a7fff;
+}
+
+.logBtnGit {
+  color: #ffffff;
+  height: 45px;
+  border: none;
+  margin-top: 15px;
+  background-color: #646464;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.logBtnGit:hover {
+  cursor: pointer;
+  background-color: #858585;
+}
+
+.cardContainer {
+  width: 250px;
+  height: 380px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  background-color: white;
+}
+
+.cardContainer div {
+  color: #393939;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cardContainer span {
+  color: #000000;
+}
+
+.cardTitle {
+  text-align: center;
+  color: #393939;
+  text-decoration: none;
+}
+
+.rec.rec-dot:hover,
+button.rec-dot:active,
+button.rec-dot:focus {
+  background-color: #00967a;
+  box-shadow: 0 0 1px 3px #13ffd5;
+}
+
+.rec.rec-arrow {
+  background-color: #a0a0a0;
+}
+
+.rec.rec-arrow:disabled {
+  visibility: hidden;
+}
+
+footer {
+  height: 70px;
+  position: relative;
+  width: 100%;
+  top: 10vw;
+  background-color: rgb(209, 209, 209);
+  text-align: center;
+  padding-top: 60px;
+}
+
+.titulosModulosHome{
+  color: #13ffd5;
+}
+
+.notFound{
+  width: 100%;
+}
+
+.historyLink{
+  text-decoration: none;
+  color: rgb(209, 209, 209) ;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.historyLink:hover{
+  color: #13ffd5;
+}
