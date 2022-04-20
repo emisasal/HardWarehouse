@@ -4,6 +4,14 @@ E-commerce de venta de productos de computación y gamer que cuenta con las sigu
 
 Desarrollado con metodología ágil SCRUM en un grupo de 6 integrantes.
 
-**Tecnologías utilizadas:**
+#### Tecnologías utilizadas:
 
-ReactJS, Express, Redux, Passport, MongoDB, Mongoose, Nodemailer, MaterialUI, React Icons.
+- ReactJS
+- Express
+- Redux
+- Passport
+- MongoDB
+- Mongoose
+- Nodemailer
+- MaterialUI
+- React Icons
