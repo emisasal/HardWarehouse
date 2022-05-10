@@ -2,7 +2,7 @@ const { ProductModel } = require("../models/Products")
 const { UserModel } = require("../models/Users")
 const email = require("../config/nodemailer")
 class CartServices {
-  async newCartItem(id, data) {
+  static async newCartItem(id, data) {
     try {
       const { productId, cantidad, price, image, title } = data
       const productItem = await ProductModel.findById(productId)
@@ -34,7 +34,8 @@ class CartServices {
       }
     }
   }
-  async removeCartItem(id, productId) {
+
+  static async removeCartItem(id, productId) {
     try {
       const user = await UserModel.findById(id)
       user.carrito = user.carrito.filter(({ product }) => product !== productId)
@@ -53,7 +54,8 @@ class CartServices {
       }
     }
   }
-  async modifyQuantity(id, data) {
+
+  static async modifyQuantity(id, data) {
     try {
       const { productId, cantidad } = data
       const user = await UserModel.findById(id)
@@ -79,7 +81,7 @@ class CartServices {
     }
   }
 
-  async confirmBuy(id) {
+  static async confirmBuy(id) {
     try {
       const user = await UserModel.findById(id)
       user.history.push(user.carrito)

@@ -2,7 +2,7 @@ const UserServices = require("../services/User")
 const { genPassword } = require("../lib/passwordUtils")
 
 class UserController {
-  async register(req, res) {
+  static async register(req, res) {
     const { error, response } = await UserServices.register(req.body)
 
     if (error) return res.status(400).send(response)
@@ -18,7 +18,7 @@ class UserController {
     return res.sendStatus(200)
   }
 
-  async updateUser(req, res) {
+  static async updateUser(req, res) {
     const { id } = req.params
     req.body.admin = false
     const { error, response } = await UserServices.updateUser(id, req.body)
@@ -31,7 +31,7 @@ class UserController {
     if (req.user) return res.send(req.user)
     return res.sendStatus(404)
   }
-  async updateAdmin(req, res) {
+  static async updateAdmin(req, res) {
     const { id } = req.params
 
     if (req.body.admin === false && req.user.id === id)
@@ -42,14 +42,15 @@ class UserController {
     if (error) return res.status(400).send(response)
     return res.status(201).send(response)
   }
-  async deleteUser(req, res) {
+  static async deleteUser(req, res) {
     const { id } = req.params
     const { error, response } = await UserServices.deleteUser(id)
 
     if (error) return res.status(404).send(response)
     return res.status(202).send(response)
   }
-  async getUsers(req, res) {
+
+  static async getUsers(req, res) {
     const { error, response } = await UserServices.getUsers()
 
     if (error) return res.status(404).send(response)

@@ -19,7 +19,7 @@ const Novedades = () => {
   useEffect(() => {
     dispatch(getProducts())
   }, [])
-
+console.log(products)
   return (
     <>
       <div className="marginContainer">
