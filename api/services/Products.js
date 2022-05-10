@@ -1,7 +1,7 @@
 const { ProductModel } = require("../models/Products")
 
 class ProductsServices {
-  async newProduct(data) {
+  static async newProduct(data) {
     try {
       const response = await ProductModel(data).save()
       return {
@@ -16,7 +16,7 @@ class ProductsServices {
     }
   }
 
-  async getProducts(page, filters) {
+  static async getProducts(page, filters) {
     try {
       const response = await ProductModel.paginate(filters, {
         page: page,
@@ -35,7 +35,7 @@ class ProductsServices {
     }
   }
 
-  async getProduct(id) {
+  static async getProduct(id) {
     try {
       const response = await ProductModel.findById(id)
       return {
@@ -50,7 +50,7 @@ class ProductsServices {
     }
   }
 
-  async searchByTitle(page, title) {
+  static async searchByTitle(page, title) {
     try {
       const response = await ProductModel.paginate(
         {
@@ -70,7 +70,7 @@ class ProductsServices {
     }
   }
 
-  async updateProduct(id, data) {
+  static async updateProduct(id, data) {
     try {
       const options = { new: true, runValidators: true }
       const response = await ProductModel.findByIdAndUpdate(id, data, options)
@@ -86,7 +86,7 @@ class ProductsServices {
     }
   }
 
-  async deleteProduct(id) {
+  static async deleteProduct(id) {
     try {
       await ProductModel.findByIdAndDelete(id)
       return {
@@ -100,7 +100,7 @@ class ProductsServices {
     }
   }
 
-  async reviewProduct(id, data) {
+  static async reviewProduct(id, data) {
     try {
       const productForReview = await ProductModel.findById(id)
 
@@ -135,7 +135,7 @@ class ProductsServices {
     }
   }
 
-  async searchByTags(page, tagList) {
+  static async searchByTags(page, tagList) {
     try {
       const response = await ProductModel.paginate(
         { tags: { $all: [tagList] } },

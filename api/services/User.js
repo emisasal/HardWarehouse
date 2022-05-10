@@ -1,7 +1,7 @@
 const { UserModel } = require("../models/Users")
 
 class UserServices {
-  async register(data) {
+  static async register(data) {
     try {
       const response = await UserModel(data).save()
       return {
@@ -16,7 +16,7 @@ class UserServices {
     }
   }
 
-  async updateUser(id, data) {
+  static async updateUser(id, data) {
     try {
       const options = {
         new: true,
@@ -36,7 +36,7 @@ class UserServices {
     }
   }
 
-  async updateAdmin(id, adminData) {
+  static async updateAdmin(id, adminData) {
     try {
       const response = await UserModel.findByIdAndUpdate(id, adminData, {
         new: true,
@@ -53,7 +53,7 @@ class UserServices {
     }
   }
 
-  async deleteUser(id) {
+  static async deleteUser(id) {
     try {
       await UserModel.findByIdAndDelete(id)
       return {
@@ -67,7 +67,7 @@ class UserServices {
     }
   }
 
-  async getUsers() {
+  static async getUsers() {
     try {
       const response = await UserModel.find()
 
