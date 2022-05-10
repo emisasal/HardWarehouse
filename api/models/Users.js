@@ -1,5 +1,5 @@
-const { Schema, model } = require('mongoose');
-const { genHash } = require('../lib/passwordUtils');
+const { Schema, model } = require("mongoose")
+const { genHash } = require("../lib/passwordUtils")
 
 const CarritoItem = new Schema({
   product: {
@@ -26,9 +26,9 @@ const CarritoItem = new Schema({
     type: Boolean,
     default: false,
   },
-});
+})
 
-const CarritoItemModel = model('Carrito', CarritoItem);
+const CarritoItemModel = model("Carrito", CarritoItem)
 
 const UserSchema = new Schema({
   fullName: {
@@ -60,18 +60,18 @@ const UserSchema = new Schema({
   },
   direction: {
     type: String,
-    default: '',
+    default: "",
   },
-});
+})
 
-UserSchema.pre('save', async function () {
-  const saltHash = await genHash(this.password);
-  const { salt, hash } = saltHash;
+UserSchema.pre("save", async function () {
+  const saltHash = await genHash(this.password)
+  const { salt, hash } = saltHash
 
-  this.password = hash;
-  this.salt = salt;
-});
+  this.password = hash
+  this.salt = salt
+})
 
-const UserModel = model('User', UserSchema);
+const UserModel = model("User", UserSchema)
 
-module.exports = { UserModel, CarritoItemModel };
+module.exports = { UserModel, CarritoItemModel }

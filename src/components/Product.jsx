@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 import {
   Breadcrumbs,
@@ -13,56 +12,52 @@ import {
   Divider,
   Rating,
   MobileStepper,
-} from "@mui/material";
+} from "@mui/material"
 import {
   Star,
   KeyboardArrowLeft,
   KeyboardArrowRight,
-} from "@mui/icons-material";
-import { getSingleProduct } from "../store/products";
-import { Box } from "@mui/system";
-import { useTheme } from "@emotion/react";
-import { useParams } from "react-router";
-
-import { addToCart, removeFromCart } from "../store/user";
+} from "@mui/icons-material"
+import { getSingleProduct } from "../store/products"
+import { Box } from "@mui/system"
+import { useTheme } from "@emotion/react"
+import { useParams } from "react-router"
+import { addToCart, removeFromCart } from "../store/user"
 
 function Product() {
-  const { id } = useParams();
-
-  const dispatch = useDispatch();
-
-  const [value, setValue] = useState(0);
-
-  const productos = useSelector((state) => state.products);
-  const user = useSelector((state) => state.user.data);
+  const { id } = useParams()
+  const user = useSelector(state => state.user.data)
+  const productos = useSelector(state => state.products)
+  const dispatch = useDispatch()
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
-    dispatch(getSingleProduct(id));
+    dispatch(getSingleProduct(id))
+  }, [dispatch, id])
 
-  }, [dispatch, id]);
-
-  const steps = [1];
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = useState(0);
-  const maxSteps = steps.length;
+  const steps = [1]
+  const theme = useTheme()
+  const [activeStep, setActiveStep] = useState(0)
+  const maxSteps = steps.length
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+    setActiveStep(prevActiveStep => prevActiveStep + 1)
+  }
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    setActiveStep(prevActiveStep => prevActiveStep - 1)
+  }
 
-  const removeFormCart = (productId) => {
-    dispatch(removeFromCart({ id: user.data._id, productId: productId }));
-  };
+  const removeFormCart = productId => {
+    dispatch(removeFromCart({ id: user.data._id, productId: productId }))
+  }
 
-  if (!productos.singleProduct._id) return <h1> no hay datos</h1>;
+  if (!productos.singleProduct._id) return <h1> no hay datos</h1>
   let indexCarrito
   if (user.data) {
-
-    indexCarrito = user.data.carrito.map(product => product.product).indexOf(productos.singleProduct._id)
+    indexCarrito = user.data.carrito
+      .map(product => product.product)
+      .indexOf(productos.singleProduct._id)
   }
 
   return (
@@ -191,15 +186,13 @@ function Product() {
                       name="simple-controlled"
                       value={value}
                       onChange={(event, newValue) => {
-                        setValue(newValue);
+                        setValue(newValue)
                       }}
                     />
                   </Grid>
                   <Grid item xs={12}>
-
-
-                    {user.data ?
-                      (indexCarrito !== -1 ?
+                    {user.data ? (
+                      indexCarrito !== -1 ? (
                         <button
                           onClick={() => {
                             removeFormCart(productos.singleProduct._id)
@@ -208,7 +201,7 @@ function Product() {
                         >
                           <p>Eliminar del carrito</p>
                         </button>
-                        :
+                      ) : (
                         <button
                           onClick={() => {
                             dispatch(
@@ -220,16 +213,16 @@ function Product() {
                                 price: productos.singleProduct.price,
                                 cantidad: productos.singleProduct.quantity,
                               })
-                            );
+                            )
                           }}
                           className="button-addCarrito"
                         >
                           <p>Agregar al carrito</p>
-                        </button>)
-                      :
-                      (<></>)
-                    }
-
+                        </button>
+                      )
+                    ) : (
+                      <></>
+                    )}
                   </Grid>
                 </Grid>
               </Grid>
@@ -238,7 +231,7 @@ function Product() {
         </Grid>
       </Container>
     </div>
-  );
+  )
 }
 
-export default Product;
+export default Product
