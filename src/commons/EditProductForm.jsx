@@ -1,9 +1,7 @@
 import { TextareaAutosize } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router"
-
 import { editOneProduct } from "../store/products"
-
 import useInputEdit from "../hooks/useInputEdit"
 import { Link } from "react-router-dom"
 
@@ -15,15 +13,13 @@ const EditProductForm = () => {
   const image = useInputEdit(editProduct.image)
   const price = useInputEdit(editProduct.price)
   const stock = useInputEdit(editProduct.stock)
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const handleSubmit = async e => {
     e.preventDefault()
-
     await dispatch(
-        editOneProduct({
+      editOneProduct({
         id: editProduct._id,
         title: title.value,
         category: category.value,
@@ -33,7 +29,7 @@ const EditProductForm = () => {
         details: details.value,
       })
     )
-      navigate("/admin/administrador")
+    navigate("/admin/administrador")
   }
 
   return (
@@ -98,11 +94,8 @@ const EditProductForm = () => {
 
           <div></div>
           <Link to="/admin/administrador">
-          <button className="logBtn">
-            CANCELAR
-          </button>
+            <button className="logBtn">CANCELAR</button>
           </Link>
-          
         </form>
       </div>
     </>

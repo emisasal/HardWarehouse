@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { styled, Box } from '@mui/system';
-import ModalUnstyled from '@mui/base/ModalUnstyled';
+import * as React from "react"
+import { styled, Box } from "@mui/system"
+import ModalUnstyled from "@mui/base/ModalUnstyled"
 
 const StyledModal = styled(ModalUnstyled)`
   position: fixed;
@@ -12,9 +12,9 @@ const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
-const Backdrop = styled('div')`
+const Backdrop = styled("div")`
   z-index: -1;
   position: fixed;
   right: 0;
@@ -23,21 +23,21 @@ const Backdrop = styled('div')`
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
-`;
+`
 
 const style = {
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   p: 2,
   px: 4,
   pb: 3,
-};
+}
 
 export default function ModalLogin() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [open, setOpen] = React.useState(false)
+  const handleOpen = () => setOpen(true)
+  const handleClose = () => setOpen(false)
 
   return (
     <div>
@@ -57,5 +57,5 @@ export default function ModalLogin() {
         </Box>
       </StyledModal>
     </div>
-  );
+  )
 }

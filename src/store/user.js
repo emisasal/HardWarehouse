@@ -8,22 +8,42 @@ const userInitialState = {
   logged: false,
 }
 
-export const sendLoginRequest = createAsyncThunk("LOGIN", usersService.userLoginService)
+export const sendLoginRequest = createAsyncThunk(
+  "LOGIN",
+  usersService.userLoginService
+)
 
-export const sendLogoutRequest = createAsyncThunk("LOGOUT", usersService.userLogoutService)
+export const sendLogoutRequest = createAsyncThunk(
+  "LOGOUT",
+  usersService.userLogoutService
+)
 
-export const sendRegisterRequest = createAsyncThunk("REGISTER", usersService.userRegisterService)
+export const sendRegisterRequest = createAsyncThunk(
+  "REGISTER",
+  usersService.userRegisterService
+)
 
-export const persistUser = createAsyncThunk("PERSIST", usersService.persistUserService)
+export const persistUser = createAsyncThunk(
+  "PERSIST",
+  usersService.persistUserService
+)
 
-export const addToCart = createAsyncThunk("ADD_TO_USER_CART", usersService.addCartUserService)
+export const addToCart = createAsyncThunk(
+  "ADD_TO_USER_CART",
+  usersService.addCartUserService
+)
 
-export const removeFromCart = createAsyncThunk("REMOVE_FROM_USER_CART", usersService.removeCartService)
+export const removeFromCart = createAsyncThunk(
+  "REMOVE_FROM_USER_CART",
+  usersService.removeCartService
+)
 
-export const increaseDecreaseCart = createAsyncThunk("INCREASE_DECREASE_USER_CART", usersService.increaseDecreaseCartService)
+export const increaseDecreaseCart = createAsyncThunk(
+  "INCREASE_DECREASE_USER_CART",
+  usersService.increaseDecreaseCartService
+)
 
 export const buyCart = createAsyncThunk("BUY_CART", usersService.buyCartService)
-
 
 const userSlice = createSlice({
   name: "user",
@@ -130,7 +150,7 @@ const userSlice = createSlice({
     [buyCart.rejected]: (state, action) => {
       state.loading = false
       state.error = action.error.message
-    }
+    },
   },
 })
 

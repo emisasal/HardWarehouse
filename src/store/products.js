@@ -8,7 +8,7 @@ const productsInitialState = {
   singleProduct: {},
   sales: [],
   pages: null,
-  search: []
+  search: [],
 }
 
 export const getProducts = createAsyncThunk(
@@ -36,13 +36,20 @@ export const searchProducts = createAsyncThunk(
   productsService.searchProductsByTitle
 )
 
-export const editOneProduct = createAsyncThunk("EDIT_PRODUCT", productsService.editProductService)
+export const editOneProduct = createAsyncThunk(
+  "EDIT_PRODUCT",
+  productsService.editProductService
+)
 
-export const deleteProduct = createAsyncThunk("DELETE_PRODUCT", 
-productsService.deleteProductService)
+export const deleteProduct = createAsyncThunk(
+  "DELETE_PRODUCT",
+  productsService.deleteProductService
+)
 
-export const getProductByTag = createAsyncThunk("GET_BY_TAG", 
-productsService.getProductByTagSercive)
+export const getProductByTag = createAsyncThunk(
+  "GET_BY_TAG",
+  productsService.getProductByTagSercive
+)
 
 const productsSlice = createSlice({
   name: "products",
@@ -122,7 +129,10 @@ const productsSlice = createSlice({
       state.loading = true
     },
     [editOneProduct.fulfilled]: (state, action) => {
-      state.data = [...state.data.filter(prod => prod._id !== action.payload._id), action.payload]
+      state.data = [
+        ...state.data.filter(prod => prod._id !== action.payload._id),
+        action.payload,
+      ]
       state.singleProduct = {}
       state.loading = false
     },
@@ -140,7 +150,7 @@ const productsSlice = createSlice({
     [getProductByTag.rejected]: (state, action) => {
       state.loading = false
       state.error = action.error.message
-    }
+    },
   },
 })
 

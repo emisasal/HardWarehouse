@@ -1,20 +1,16 @@
-import React from "react";
-
-import { Avatar, Container, Grid, IconButton, Typography } from "@mui/material";
-import { DeleteForeverRounded, EditRounded } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import user from "../store/user";
+import React from "react"
+import { Avatar, Container, Grid, Typography } from "@mui/material"
+import { useSelector } from "react-redux"
 
 export default function History() {
-  const historial = useSelector((state) => state.user.data.data.history);
+  const historial = useSelector(state => state.user.data.data.history)
+  let historyArray = []
 
-  let historyArray = [];
-
-  historial.forEach((arr) => {
-    arr.forEach((obj) => {
-      historyArray.push(obj);
-    });
-  });
+  historial.forEach(arr => {
+    arr.forEach(obj => {
+      historyArray.push(obj)
+    })
+  })
 
   return (
     <>
@@ -35,7 +31,7 @@ export default function History() {
             </Typography>
           </Grid>
 
-          <Grid item xs={12} sx={{ marginBottom:'20px' }}>
+          <Grid item xs={12} sx={{ marginBottom: "20px" }}>
             <Grid
               container
               sx={{ border: "solid 2px black", borderRadius: "5px" }}
@@ -52,7 +48,6 @@ export default function History() {
                 </Typography>
               </Grid>
 
-              
               <Grid item xs={4}>
                 <Typography variant="subtitle1" component="div" gutterBottom>
                   Precio
@@ -64,8 +59,6 @@ export default function History() {
                   Catidad
                 </Typography>
               </Grid>
-
-
             </Grid>
           </Grid>
 
@@ -92,8 +85,6 @@ export default function History() {
                     </Typography>
                   </Grid>
 
-                  
-
                   <Grid item xs={4}>
                     {product.price}
                   </Grid>
@@ -101,7 +92,6 @@ export default function History() {
                   <Grid item xs={2}>
                     {product.cantidad}
                   </Grid>
-
                 </Grid>
               </>
             ))}
@@ -109,5 +99,5 @@ export default function History() {
         </Grid>
       </Container>
     </>
-  );
+  )
 }

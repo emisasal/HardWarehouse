@@ -1,10 +1,10 @@
 import React from "react"
 import useInput from "../hooks/useInput"
 import useInputCheck from "../hooks/useInputCheck"
-
 import { useNavigate } from "react-router"
 import { useDispatch, useSelector } from "react-redux"
 import { sendRegisterRequest } from "../store/user"
+import { alertRegister } from "../utils/alerts"
 
 const Registro = () => {
   const user = useSelector(state => state.user.data)
@@ -17,19 +17,18 @@ const Registro = () => {
 
   const handleSubmit = event => {
     event.preventDefault()
-
     dispatch(
       sendRegisterRequest({
         fullName: fullName.value,
         email: email.value,
         password: password.value,
-        admin: check.value
+        admin: check.value,
+        alertRegister,
+        navigate
       })
     )
-    alert("Registro exitoso")
-    navigate("/login")
-    console.log(user)
-    }
+  }
+
   return (
     <div className="loginContainer">
       <h2>Registrarme</h2>
@@ -58,7 +57,6 @@ const Registro = () => {
             className="logInputs"
             type="checkbox"
             placeholder="Definí una contraseña."
-   
           />
           Administrador
         </label>
