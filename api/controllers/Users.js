@@ -9,11 +9,11 @@ class UserController {
     res.status(201).send(response)
   }
 
-  login(req, res) {
+  static login(req, res) {
     return res.send(req.user)
   }
 
-  logout(req, res) {
+  static logout(req, res) {
     req.logout()
     return res.sendStatus(200)
   }
@@ -27,7 +27,7 @@ class UserController {
     return res.status(201).send(response)
   }
 
-  me(req, res) {
+  static me(req, res) {
     if (req.user) return res.send(req.user)
     return res.sendStatus(404)
   }
@@ -49,7 +49,6 @@ class UserController {
     if (error) return res.status(404).send(response)
     return res.status(202).send(response)
   }
-
   static async getUsers(req, res) {
     const { error, response } = await UserServices.getUsers()
 
