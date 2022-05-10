@@ -3,12 +3,11 @@ import Novedades from "./Novedades"
 import Ofertas from "./Ofertas"
 
 const Home = () => {
-
   return (
     <>
-    <Hero/>
-    <Novedades/>
-    <Ofertas />
+      <Hero />
+      <Novedades />
+      <Ofertas />
     </>
   )
 }

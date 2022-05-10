@@ -1,6 +1,5 @@
-import React from "react";
-
-import { useNavigate } from "react-router";
+import React from "react"
+import { useNavigate } from "react-router"
 
 import {
   Avatar,
@@ -10,31 +9,32 @@ import {
   Grid,
   IconButton,
   Typography,
-} from "@mui/material";
+} from "@mui/material"
 import {
   DeleteForeverRounded,
   AddRounded,
   RemoveRounded,
   ShoppingCartOutlined,
-} from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { removeFromCart, increaseDecreaseCart } from "../store/user";
+} from "@mui/icons-material"
+import { useDispatch, useSelector } from "react-redux"
+import { removeFromCart, increaseDecreaseCart } from "../store/user"
 
 function ShoppingCart() {
-  const cart = useSelector((state) => state.user.data.data.carrito);
-  const user = useSelector((state) => state.user);
-  const productos = useSelector((state) => state.products.data);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const cart = useSelector(state => state.user.data.data.carrito)
+  const user = useSelector(state => state.user)
+  const productos = useSelector(state => state.products.data)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const addition = (acc, currentvalue) => {
-    return acc + currentvalue.price * currentvalue.cantidad;
-  };
-  const total = cart.reduce(addition, 0);
+    return acc + currentvalue.price * currentvalue.cantidad
+  }
+  const total = cart.reduce(addition, 0)
 
-  const removeFormCart = (productId) => {
-    dispatch(removeFromCart({ id: user.data.data._id, productId: productId }));
-  };
+  const removeFormCart = productId => {
+    dispatch(removeFromCart({ id: user.data.data._id, productId: productId }))
+  }
+  
   return (
     <>
       <Grid
@@ -104,7 +104,7 @@ function ShoppingCart() {
               </Typography>
             </Grid>
           ) : (
-            cart.map((producto) => (
+            cart.map(producto => (
               <Grid item xs={12}>
                 <Grid
                   container
@@ -137,9 +137,9 @@ function ShoppingCart() {
                         <IconButton edge="end" aria-label="delete">
                           <RemoveRounded
                             onClick={() => {
-                              let cantidad = producto.cantidad - 1;
+                              let cantidad = producto.cantidad - 1
                               if (cantidad === 0) {
-                                removeFormCart(producto.product);
+                                removeFormCart(producto.product)
                               } else if (cantidad >= 1) {
                                 dispatch(
                                   increaseDecreaseCart({
@@ -147,7 +147,7 @@ function ShoppingCart() {
                                     productId: producto.product,
                                     cantidad,
                                   })
-                                );
+                                )
                               }
                             }}
                           />
@@ -165,21 +165,21 @@ function ShoppingCart() {
                           <AddRounded
                             onClick={() => {
                               let stock = productos.find(
-                                (item) => item._id === producto.product
-                              ).stock;
-                              console.log("STOCK", stock);
-                              let cantidad = producto.cantidad + 1;
+                                item => item._id === producto.product
+                              ).stock
+                              console.log("STOCK", stock)
+                              let cantidad = producto.cantidad + 1
                               if (cantidad > stock)
                                 return alert(
                                   "Se ha alcanzado el limite de stock para este producto."
-                                );
+                                )
                               dispatch(
                                 increaseDecreaseCart({
                                   id: user.data.data._id,
                                   productId: producto.product,
                                   cantidad,
                                 })
-                              );
+                              )
                             }}
                           />
                         </IconButton>
@@ -193,7 +193,7 @@ function ShoppingCart() {
                     <IconButton edge="end" aria-label="delete">
                       <DeleteForeverRounded
                         onClick={() => {
-                          removeFormCart(producto.product);
+                          removeFormCart(producto.product)
                         }}
                       />
                     </IconButton>
@@ -225,7 +225,7 @@ function ShoppingCart() {
                 <Grid item xs={12}>
                   <Button
                     onClick={() => {
-                      navigate("/productos");
+                      navigate("/productos")
                     }}
                     variant="contained"
                     size="large"
@@ -257,7 +257,7 @@ function ShoppingCart() {
                 <Grid item xs={12}>
                   <Button
                     onClick={() => {
-                      navigate("/carrito/checkout");
+                      navigate("/carrito/checkout")
                     }}
                     variant="contained"
                     size="large"
@@ -277,7 +277,7 @@ function ShoppingCart() {
         </Grid>
       </Container>
     </>
-  );
+  )
 }
 
-export default ShoppingCart;
+export default ShoppingCart

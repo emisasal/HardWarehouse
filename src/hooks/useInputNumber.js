@@ -7,7 +7,7 @@ const useInputNumber = () => {
     setValue(event.target.value)
   }
 
-  return { value, onChange, setValue}
+  return { value, onChange, setValue }
 }
 
 export default useInputNumber

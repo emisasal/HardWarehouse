@@ -1,27 +1,23 @@
 import { TextareaAutosize } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
-
 import { postProduct } from "../store/products"
 import tagFunction from "../utils/tagsFunction"
-
 import useInput from "../hooks/useInput"
 
 const AdminProductForm = () => {
-    const author =  useSelector(state => state.user.data.data)
-    const title = useInput("title")
-    const category = useInput("category")
-    const details = useInput("details")
-    const image = useInput("image")
-    const price = useInput("price")
-    const stock = useInput("stock")
-    const tag1 = useInput("tag1")
-
+  const author = useSelector(state => state.user.data.data)
+  const title = useInput("title")
+  const category = useInput("category")
+  const details = useInput("details")
+  const image = useInput("image")
+  const price = useInput("price")
+  const stock = useInput("stock")
+  const tag1 = useInput("tag1")
   const dispatch = useDispatch()
 
   const handleSubmit = e => {
     e.preventDefault()
     const tags = tagFunction(tag1.value)
-
     dispatch(
       postProduct({
         title: title.value,

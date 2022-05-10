@@ -1,10 +1,10 @@
-const { Schema, model } = require('mongoose');
-const mongoosePagination = require('mongoose-paginate-v2');
+const { Schema, model } = require("mongoose")
+const mongoosePagination = require("mongoose-paginate-v2")
 
 const RatingItem = new Schema({
   user: {
     type: String,
-    required: true
+    required: true,
   },
   valueReview: {
     type: Number,
@@ -12,9 +12,9 @@ const RatingItem = new Schema({
   },
   review: {
     type: String,
-    default: '',
+    default: "",
   },
-});
+})
 
 const ProductSchema = new Schema({
   title: {
@@ -40,11 +40,11 @@ const ProductSchema = new Schema({
   },
   image: {
     type: String,
-    default: '',
+    default: "",
   },
   details: {
     type: String,
-    default: '',
+    default: "",
   },
   tags: {
     type: [String],
@@ -54,10 +54,10 @@ const ProductSchema = new Schema({
     type: [RatingItem],
     default: [],
   },
-});
+})
 
-ProductSchema.plugin(mongoosePagination);
+ProductSchema.plugin(mongoosePagination)
 
-const ProductModel = model('Product', ProductSchema);
+const ProductModel = model("Product", ProductSchema)
 
-module.exports = { ProductModel, ProductSchema, RatingItem };
+module.exports = { ProductModel, ProductSchema, RatingItem }
