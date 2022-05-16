@@ -15,3 +15,5 @@ Desarrollado con metodología ágil SCRUM en un grupo de 6 integrantes.
 - Nodemailer
 - MaterialUI
 - React Icons
+
+![Hard-WareHouse](https://user-images.githubusercontent.com/94084079/168613065-ff1acffb-83a9-434b-8a8b-2cad4b1a2cf3.jpg)
