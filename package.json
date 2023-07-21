@@ -18,7 +18,7 @@
     "dotenv": "^16.0.0",
     "express-session": "^1.17.2",
     "mongodb": "^4.4.1",
-    "mongoose": "^6.2.4",
+    "mongoose": ">=6.11.3",
     "mongoose-paginate-v2": "^1.6.3",
     "nodemailer": "^6.7.2",
     "passport": "^0.5.2",
